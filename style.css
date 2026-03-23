@@ -1,0 +1,160 @@
+@font-face {
+  font-family: Moranga;
+  src: url(./Fonts/moranga.ttf);
+}
+@font-face {
+  font-family: Gilroy;
+  src: url(./Fonts/Gilroy-Bold.otf);
+}
+@font-face {
+  font-family: Gilroy;
+  src: url(./Fonts/Gilroy-Semibold.otf);
+}
+@font-face {
+  font-family: Gilroy;
+  src: url(./Fonts/Gilroy-Medium.otf);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #161616;
+  font-family: "Gilroy";
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 248, 220, 0.147);
+}
+
+.main {
+  width: 100%;
+  max-width: 770px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* navbar */
+.navbar {
+  width: 100%;
+  max-width: 770px;
+  padding: 0.5rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+  font-size: 1.5rem;
+}
+.navbar .nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.navbar .nav a {
+  text-decoration: none;
+  color: gray;
+}
+.navbar .nav a:hover {
+  color: #3f3f3f;
+}
+.navbar .toggle {
+  font-size: 1rem;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 1rem;
+}
+.container .profile {
+  display: flex;
+  flex-direction: column;
+}
+.container .profile .imgName {
+  width: 100%;
+  height: -moz-fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.container .profile .imgName img {
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+}
+.container .profile .imgName p {
+  margin-top: 0.5rem;
+  color: gray;
+}
+.container .profile .imgName h2 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.container .profile .imgName h2 img {
+  height: 1.5rem;
+  opacity: 0.5;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+}
+.container .profile p {
+  margin-top: 0.5rem;
+  color: gray;
+}
+.container .about {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.container .about .aboutContent {
+  margin: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.container .about .aboutContent .aboutOne {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.container .about .aboutContent .aboutOne p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: larger;
+}
+.container .about .aboutContent .aboutOne p img {
+  opacity: 0.5;
+}
+.container .about .aboutContent .aboutTwo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.container .about .aboutContent .aboutTwo p {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: larger;
+}
+.container .about .aboutContent .aboutTwo p img {
+  opacity: 0.5;
+}
+.container .about .aboutContent #connect {
+  cursor: pointer;
+}/*# sourceMappingURL=style.css.map */
