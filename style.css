@@ -1,25 +1,42 @@
-@font-face {
-  font-family: Moranga;
-  src: url(./Fonts/moranga.ttf);
+:root {
+  --font-main: "GeistSans", "GeistSans Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "GeistMono", ui-monospace, SFMono-Regular, "Roboto Mono", Menlo, Monaco, "Liberation Mono", "DejaVu Sans Mono", "Courier New", monospace;
+  --bg-color: #FBFBFB;
+  --text-color: #161616;
+  --muted-color: #6f6f6f;
+  --border-color: #b5b5b5;
+  --card-bg: #ffffff;
+  --card-border: #e4e4e4;
+  --media-bg: #f2f2f2;
+  --card-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  --card-shadow-hover: 0 10px 24px rgba(0, 0, 0, 0.12);
 }
-@font-face {
-  font-family: Gilroy;
-  src: url(./Fonts/Gilroy-Bold.otf);
+
+body.theme-dark {
+  --bg-color: #0C0C0C;
+  --text-color: #edf1f7;
+  --muted-color: #acb6c5;
+  --border-color: #313946;
+  --card-bg: #161c25;
+  --card-border: #303949;
+  --media-bg: #222a37;
+  --card-shadow: 0 10px 22px rgba(0, 0, 0, 0.35);
+  --card-shadow-hover: 0 16px 28px rgba(0, 0, 0, 0.45);
 }
-@font-face {
-  font-family: Gilroy;
-  src: url(./Fonts/Gilroy-Semibold.otf);
+body.theme-dark .navbar .toggle img,
+body.theme-dark .container .profile .imgName h2 #nameSound,
+body.theme-dark .container .about .aboutContent .aboutOne p img,
+body.theme-dark .container .about .aboutContent .aboutTwo p img {
+  filter: invert(1);
+  opacity: 0.9;
 }
-@font-face {
-  font-family: Gilroy;
-  src: url(./Fonts/Gilroy-Medium.otf);
-}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #161616;
-  font-family: "Gilroy";
+  color: var(--text-color);
+  font-family: var(--font-main);
 }
 
 html,
@@ -29,7 +46,57 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #FFFFFF;
+  background-color: var(--bg-color);
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+html {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  line-height: 1.45;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-main);
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  font-weight: 600;
+}
+
+p,
+li,
+button,
+input,
+textarea {
+  font-family: var(--font-main);
+  letter-spacing: -0.01em;
+}
+
+a {
+  font-family: var(--font-main);
+  letter-spacing: -0.01em;
+  font-size: 1.25rem;
+}
+
+code,
+pre,
+kbd,
+samp,
+.mono,
+.container .profile .imgName .name p,
+.container .about .aboutContent p {
+  font-family: var(--font-mono);
+  letter-spacing: 0.01em;
 }
 
 .main {
@@ -49,7 +116,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid var(--border-color);
   font-size: 1.5rem;
 }
 .navbar .nav {
@@ -59,13 +126,39 @@ body {
 }
 .navbar .nav a {
   text-decoration: none;
-  color: gray;
+  color: var(--muted-color);
 }
 .navbar .nav a:hover {
-  color: #3f3f3f;
+  color: var(--text-color);
 }
 .navbar .toggle {
+  opacity: 0.8;
   font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: transparent;
+  cursor: pointer;
+  transition: opacity 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+}
+.navbar .toggle img {
+  width: 1.25rem;
+  color: gray;
+  height: 1.25rem;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+.navbar .toggle:hover {
+  opacity: 1;
+}
+.navbar .toggle:focus-visible {
+  outline: 2px solid var(--text-color);
+  outline-offset: 2px;
+}
+.navbar .toggle:active {
+  transform: scale(0.96);
 }
 
 .container {
@@ -92,25 +185,42 @@ body {
   width: 120px;
   border-radius: 50%;
 }
-.container .profile .imgName p {
-  margin-top: 0.5rem;
-  color: gray;
+.container .profile .imgName .name p {
+  display: flex;
+  gap: 0.5rem;
+  color: #00A73F;
+}
+.container .profile .imgName .name p .dot {
+  height: 8px;
+  width: 8px;
+  background-color: #00A73F;
+  border-radius: 50%;
+  margin-top: 0.35rem;
 }
 .container .profile .imgName h2 {
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
-.container .profile .imgName h2 img {
+.container .profile .imgName h2 #nameSound {
   height: 1.5rem;
-  opacity: 0.5;
+  opacity: 1;
   width: -moz-fit-content;
   width: fit-content;
   cursor: pointer;
+  opacity: 0.6;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+.container .profile .imgName h2 #nameSound:hover {
+  opacity: 1;
+  transition: all 1s ease-in;
+}
+.container .profile .imgName h2 #nameSound:active {
+  transform: scale(1.06);
 }
 .container .profile p {
   margin-top: 0.5rem;
-  color: gray;
+  color: var(--muted-color);
 }
 .container .about {
   width: 100%;
@@ -138,7 +248,8 @@ body {
   font-size: larger;
 }
 .container .about .aboutContent .aboutOne p img {
-  opacity: 0.5;
+  opacity: 0.6;
+  transition: filter 0.2s ease, opacity 0.2s ease;
 }
 .container .about .aboutContent .aboutTwo {
   display: flex;
@@ -153,7 +264,8 @@ body {
   font-size: larger;
 }
 .container .about .aboutContent .aboutTwo p img {
-  opacity: 0.5;
+  opacity: 0.6;
+  transition: filter 0.2s ease, opacity 0.2s ease;
 }
 .container .about .aboutContent #connect {
   cursor: pointer;
@@ -174,23 +286,23 @@ body {
   height: 18rem;
   display: grid;
   grid-template-rows: 60% 20% 20%;
-  border: 1px solid #e4e4e4;
+  border: 1px solid var(--card-border);
   border-radius: 1rem;
-  background-color: #ffffff;
+  background-color: var(--card-bg);
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+  box-shadow: var(--card-shadow);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 .project .projectCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--card-shadow-hover);
 }
 .project .projectCard .media {
   position: relative;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  background-color: #f2f2f2;
+  background-color: var(--media-bg);
 }
 .project .projectCard .media > img,
 .project .projectCard .media > video {
@@ -199,7 +311,8 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   transition: opacity 0.3s ease;
 }
 .project .projectCard .preview-video {
@@ -223,7 +336,8 @@ body {
 .project .projectCard .stacks img {
   width: 1.7rem;
   height: 1.7rem;
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
   border-radius: 0.35rem;
 }
 .project .projectCard.is-playing .preview-video {

@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Veeresh | portfolio</title>
+
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <div class="main">
       <div class="navbar">
@@ -14,9 +16,9 @@
           <a href="#project">Project</a>
           <a href="#">Resume</a>
         </div>
-        <div class="toggle">
-          <p>&copy</p>
-        </div>
+        <button class="toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+          <img id="themeIcon" src="./svg/dark.svg" alt="dark mode icon" />
+        </button>
       </div>
 
       <div class="container">
@@ -28,9 +30,9 @@
             <div class="name">
               <h2>
                 Veeresh B C
-                <img src="./svg/sound.svg" alt="sound icon" class="sound-icon" />
+                <img id="nameSound" src="./svg/sound.svg" alt="sound icon" class="sound-icon" />
               </h2>
-              <p>Freher</p>
+              <p><span class="dot"></span> Open for work</p>
             </div>
           </div>
           <p>Love to build cool stuf and modern UI</p>
@@ -41,7 +43,7 @@
           <h2>About</h2>
           <div class="aboutContent">
             <div class="aboutOne">
-              <p><img src="./svg/location.svg" alt="location" /> Gadag, Karnataka</p>
+              <p><img  src="./svg/location.svg" alt="location" /> Gadag, Karnataka</p>
               <p id="connect"><img src="./svg/location.svg" alt="phone" /> +91112223330</p>
               <p id="connect"><img src="./svg/link.svg" alt="website" /> veeresh.me</p>
             </div>
@@ -159,6 +161,7 @@
 
       <div class="footer"></div>
     </div>
-    <script src="./script.js"></script>
+    <script src="script.js"></script>
+  
   </body>
 </html>
