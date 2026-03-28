@@ -1,36 +1,18 @@
-import { useEffect, useState } from "react";
+import darkIcon from "../assets/svg/dark.svg";
 
-export default function Navbar() {
-  const [dark, setDark] = useState(false);
-
-  useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    const isDark = saved === "dark";
-    setDark(isDark);
-    document.body.classList.toggle("theme-dark", isDark);
-  }, []);
-
-  const toggleTheme = () => {
-    const next = !dark;
-    setDark(next);
-    document.body.classList.toggle("theme-dark", next);
-    localStorage.setItem("theme", next ? "dark" : "light");
-  };
-
+const Navbar = () => {
   return (
     <div className="navbar">
-      <div className="nav">
-        <a href="#">Home</a>
-        <a href="#project">Project</a>
-        <a href="#">Resume</a>
+      <div className="navlink">
+        <li>Home</li>
+        <li>Project</li>
+        <li>Contact</li>
       </div>
 
-      <button className="toggle" onClick={toggleTheme}>
-        <img
-          src={dark ? "/svg/light.svg" : "/svg/dark.svg"}
-          alt="theme"
-        />
-      </button>
+      <div className="themeBtn">
+        <img src={darkIcon} alt="dark" />
+      </div>
     </div>
   );
-}
+};
+export default Navbar;
