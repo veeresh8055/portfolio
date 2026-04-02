@@ -1,16 +1,23 @@
-import darkIcon from "../assets/svg/dark.svg";
-
 const Navbar = () => {
+  const cleanPath = window.location.pathname.replace(/\/+$/, "") || "/";
+  const isProjectsPage = cleanPath === "/projects";
+
   return (
     <div className="navbar">
       <div className="navlink">
-        <li>Home</li>
-        <li>Project</li>
-        <li>Contact</li>
-      </div>
-
-      <div className="themeBtn">
-        <img src={darkIcon} alt="dark" />
+        <li className={!isProjectsPage ? "active" : ""}>
+          <a href="/">Home</a>
+        </li>
+        <li className={isProjectsPage ? "active" : ""}>
+          <a href="/projects">
+            Projects
+          </a>
+        </li>
+        <li>
+          <a href="/resume/veeresh-resume.pdf" download="Veeresh-Resume.pdf">
+            Resume
+          </a>
+        </li>
       </div>
     </div>
   );

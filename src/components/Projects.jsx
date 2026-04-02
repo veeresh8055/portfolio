@@ -1,24 +1,31 @@
 import ProjectCard from "./ProjectCard";
+import { projectsData } from "../data/projectsData";
 
-export default function Projects() {
-  const data = [
-    {
-      title: "Portfolio Website",
-      img: "/images/repo.png",
-      video: "/videos/windows-11.mp4",
-      stacks: ["/images/html-min.webp", "/images/css-min.webp", "/images/js-min.webp"],
-    },
-  ];
+export default function Projects({ showAll = false }) {
+  const visibleProjects = showAll ? projectsData : projectsData.slice(0, 4);
 
   return (
-    <div className="project" id="project">
-      <h2>Projects</h2>
+    <section className="projects" id="project">
+      <div className="projectsInner">
+        <div className="projectsHead">
+          <h2>Projects</h2>
+          <span>({projectsData.length})</span>
+        </div>
 
-      <div className="projectContent">
-        {data.map((p, i) => (
-          <ProjectCard key={i} {...p} />
-        ))}
+        <div className="projectsGrid">
+          {visibleProjects.map((project) => (
+            <ProjectCard key={project.id} {...project} />
+          ))}
+        </div>
+
+        {!showAll && (
+          <div className="showMoreWrap">
+            <a href="/projects" className="showMoreBtn">
+              Show More
+            </a>
+          </div>
+        )}
       </div>
-    </div>
+    </section>
   );
 }

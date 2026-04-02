@@ -1,21 +1,51 @@
+import locationIcon from "../assets/svg/location.svg";
+import phoneIcon from "../assets/svg/phone.svg";
+import linkIcon from "../assets/svg/link.svg";
+import mailIcon from "../assets/svg/mail.svg";
+import genderIcon from "../assets/svg/gender.svg";
+
 export default function About() {
+  const aboutOne = [
+    { icon: locationIcon, alt: "Location", text: "Gadag, Karnataka" },
+    { icon: phoneIcon, alt: "Phone", text: "+91 11222 33330" },
+    { icon: linkIcon, alt: "Website", text: "veeresh.me" },
+  ];
+
+  const aboutTwo = [
+    { icon: locationIcon, alt: "Timezone", text: "IST (UTC+05:30)" },
+    { icon: mailIcon, alt: "Email", text: "veereshchared@gmail.com" },
+    { icon: genderIcon, alt: "Pronouns", text: "he/him" },
+  ];
+
   return (
-    <div className="about">
-      <h2>About</h2>
+    <section className="about">
+      <div className="aboutInner">
+        <h2>About</h2>
+        <p className="aboutLead">
+          I enjoy building modern web experiences with clean visuals, smooth
+          interactions, and thoughtful details.
+        </p>
 
-      <div className="aboutContent">
-        <div className="aboutOne">
-          <p><img src="/svg/location.svg" /> Gadag, Karnataka</p>
-          <p><img src="/svg/location.svg" /> +91112223330</p>
-          <p><img src="/svg/link.svg" /> veeresh.me</p>
-        </div>
+        <div className="aboutContent">
+          <div className="aboutCol">
+            {aboutOne.map((item) => (
+              <p className="aboutItem" key={item.text}>
+                <img src={item.icon} alt={item.alt} />
+                <span>{item.text}</span>
+              </p>
+            ))}
+          </div>
 
-        <div className="aboutTwo">
-          <p><img src="/svg/location.svg" /> 12:22</p>
-          <p><img src="/svg/mail.svg" /> veeresh@gmail.com</p>
-          <p><img src="/svg/gender.svg" /> he/him</p>
+          <div className="aboutCol">
+            {aboutTwo.map((item) => (
+              <p className="aboutItem" key={item.text}>
+                <img src={item.icon} alt={item.alt} />
+                <span>{item.text}</span>
+              </p>
+            ))}
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

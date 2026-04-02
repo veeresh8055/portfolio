@@ -1,0 +1,58 @@
+export const projectsData = [
+  {
+    id: "portfolio",
+    title: "Portfolio Website",
+    image: "/images/repo.png",
+    video: "/videos/windows-11.mp4",
+    stacks: ["React", "SCSS", "Vite"],
+  },
+  {
+    id: "worklink",
+    title: "Worklink Job Board UI",
+    image: "/images/worklink.png",
+    video: "/videos/windows-11.mp4",
+    stacks: ["React", "Tailwind", "GSAP"],
+  },
+  {
+    id: "dashboard",
+    title: "Analytics Dashboard",
+    image: "/images/illus.png",
+    video: "/videos/windows-11.mp4",
+    stacks: ["Next.js", "Chart.js", "TypeScript"],
+  },
+  {
+    id: "social-clone",
+    title: "Social Profile Clone",
+    image: "/images/hii.png",
+    video: "/videos/windows-11.mp4",
+    stacks: ["React", "Redux", "SCSS"],
+  },
+  {
+    id: "commerce",
+    title: "E-Commerce Landing",
+    image: "/images/nextjs.png",
+    video: "/videos/windows-11.mp4",
+    stacks: ["Next.js", "Shadcn UI", "Framer Motion"],
+  },
+  {
+    id: "design-system",
+    title: "UI Design System Kit",
+    image: "/images/shadcn.png",
+    video: "/videos/windows-11.mp4",
+    stacks: ["Figma", "React", "Storybook"],
+  },
+  {
+    id: "state-lab",
+    title: "State Management Lab",
+    image: "/images/redux.png",
+    video: "/videos/windows-11.mp4",
+    stacks: ["Redux", "Zustand", "React"],
+  },
+  {
+    id: "tailwind-showcase",
+    title: "Tailwind Component Showcase",
+    image: "/images/tailwind.png",
+    video: "/videos/windows-11.mp4",
+    stacks: ["Tailwind CSS", "Vite", "JavaScript"],
+  },
+];
