@@ -102,7 +102,7 @@
         return null;
       }
       return parsedNekoState;
-    } catch (error) {
+    } catch {
       return null;
     }
   }
@@ -179,7 +179,7 @@
               bgPos: nekoEl.style.backgroundPosition,
             })
           );
-        } catch (error) {
+        } catch {
           // Ignore storage errors (private mode/quota/security restrictions).
         }
       });

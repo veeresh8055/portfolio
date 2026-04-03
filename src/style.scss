@@ -21,26 +21,27 @@ $text-body: #515154;
   .navlink {
     display: flex;
     gap: 1.25rem;
+    margin: 0;
+    padding: 0;
 
     li {
       list-style: none;
       color: #52525b;
-      cursor: pointer;
-      transition: color 0.2s ease;
 
       a {
         color: inherit;
         text-decoration: none;
         display: inline-block;
         padding: 0.2rem 0;
+        transition: color 0.2s ease;
       }
     }
 
-    li:hover {
+    li:hover a {
       color: #18181b;
     }
 
-    li.active {
+    a.active {
       color: #0f172a;
       font-weight: 600;
       border-bottom: 2px solid #111827;
@@ -278,6 +279,80 @@ $text-body: #515154;
   }
 }
 
+.socialSection {
+  position: relative;
+  border-bottom: 1px solid $border-color;
+  background:
+    radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.05) 1px, transparent 0) 0
+      0 / 14px 14px,
+    $surface;
+
+  &::after {
+    content: "";
+    display: block;
+    height: 30px;
+    border-top: 1px solid $border-color;
+    background: repeating-linear-gradient(
+      -45deg,
+      #ececee 0 8px,
+      #f2f2f3 8px 16px
+    );
+  }
+
+  .socialInner {
+    width: min(100%, 860px);
+    min-width: 320px;
+    margin: 0 auto;
+    padding: 0.85rem 1rem 1.2rem;
+    border-top: 1px solid $border-color;
+    background-color: rgba(244, 244, 245, 0.84);
+  }
+
+  h2 {
+    font-size: 2.1rem;
+    line-height: 1;
+    color: #0b0f16;
+    margin: 0 0 0.9rem;
+  }
+
+  .socialGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    gap: 0.9rem;
+  }
+
+  .socialCard {
+    border: 1px solid $border-color;
+    background-color: #f8f8f9;
+    padding: 0.9rem;
+    min-height: 96px;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease;
+
+    &:hover {
+      transform: translateY(-3px);
+      background-color: #ffffff;
+    }
+  }
+
+  .socialName {
+    color: #111827;
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+
+  .socialMeta {
+    color: #71717a;
+    font-size: 0.92rem;
+  }
+}
+
 .projects {
   position: relative;
   border-bottom: 1px solid $border-color;
@@ -487,6 +562,22 @@ $text-body: #515154;
       font-size: 2.25rem;
     }
   }
+
+  .socialSection {
+    .socialInner {
+      min-width: 0;
+      padding-left: 0.8rem;
+      padding-right: 0.8rem;
+    }
+
+    .socialGrid {
+      grid-template-columns: 1fr;
+    }
+
+    h2 {
+      font-size: 1.7rem;
+    }
+  }
 }
 
 @media (max-width: 400px) {
@@ -533,6 +624,17 @@ $text-body: #515154;
     .stackGrid {
       grid-template-columns: repeat(6, minmax(34px, 1fr));
       gap: 0.65rem;
+    }
+  }
+
+  .socialSection {
+    h2 {
+      font-size: 1.55rem;
+    }
+
+    .socialCard {
+      min-height: 88px;
+      padding: 0.8rem;
     }
   }
 }

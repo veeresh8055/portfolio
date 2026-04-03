@@ -1,25 +1,26 @@
-const Navbar = () => {
-  const cleanPath = window.location.pathname.replace(/\/+$/, "") || "/";
-  const isProjectsPage = cleanPath === "/projects";
+import { NavLink } from "react-router-dom";
 
+const Navbar = () => {
   return (
-    <div className="navbar">
-      <div className="navlink">
-        <li className={!isProjectsPage ? "active" : ""}>
-          <a href="/">Home</a>
+    <nav className="navbar">
+      <ul className="navlink">
+        <li>
+          <NavLink to="/" end>
+            Home
+          </NavLink>
         </li>
-        <li className={isProjectsPage ? "active" : ""}>
-          <a href="/projects">
+        <li>
+          <NavLink to="/projects">
             Projects
-          </a>
+          </NavLink>
         </li>
         <li>
           <a href="/resume/veeresh-resume.pdf" download="Veeresh-Resume.pdf">
             Resume
           </a>
         </li>
-      </div>
-    </div>
+      </ul>
+    </nav>
   );
 };
 export default Navbar;

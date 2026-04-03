@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import ProjectCard from "./ProjectCard";
 import { projectsData } from "../data/projectsData";
 
@@ -20,9 +21,9 @@ export default function Projects({ showAll = false }) {
 
         {!showAll && (
           <div className="showMoreWrap">
-            <a href="/projects" className="showMoreBtn">
+            <Link to="/projects" className="showMoreBtn">
               Show More
-            </a>
+            </Link>
           </div>
         )}
       </div>
