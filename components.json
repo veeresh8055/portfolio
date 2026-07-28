@@ -24,6 +24,8 @@
   "registries": {
     "@ncdai": "https://chanhdai.com/r/{name}.json",
     "@react-bits": "https://reactbits.dev/r/{name}.json",
-    "@soundcn": "https://soundcn.xyz/r/{name}.json"
+    "@soundcn": "https://soundcn.xyz/r/{name}.json",
+    "@shadcn-space": "https://shadcnspace.com/r/{name}.json",
+    "@kibo-ui": "https://www.kibo-ui.com/r/{name}.json"
   }
 }

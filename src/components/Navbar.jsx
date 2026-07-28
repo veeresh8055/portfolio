@@ -75,7 +75,7 @@ export default function Navbar() {
 
           <Button
             asChild
-            className="rounded-full">
+            className="rounded-full bg-emerald-400 text-black hover:bg-emerald-300 ">
             <a
               href={RESUME_URL}
               target="_blank"
@@ -97,7 +97,7 @@ export default function Navbar() {
               target="_blank"
               rel="noreferrer"
               aria-label="GitHub profile">
-              <GitHubIcon className="h-4 w-4 transition-transform duration-500 hover:scale-110" />
+              <GitHubIcon className="h-6 w-6 transition-transform duration-500 hover:scale-110" />
             </a>
           </Button>
 
@@ -111,7 +111,7 @@ export default function Navbar() {
               target="_blank"
               rel="noreferrer"
               aria-label="LinkedIn profile">
-              <LinkedInIcon className="h-4 w-4 transition-transform duration-500 hover:scale-110" />
+              <LinkedInIcon className="h-5 w-5 transition-transform duration-500 hover:scale-110" />
             </a>
           </Button>
         </nav>

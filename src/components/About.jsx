@@ -78,7 +78,7 @@ export default function About() {
   ]
 
   return (
-    <section className="mx-auto w-full max-w-5xl px-4 pb-8 sm:px-5 lg:px-7">
+    <section className="mx-auto w-full max-w-5xl px-4 py-8 sm:px-5 sm:py-10 lg:px-7">
       <div className="overflow-hidden rounded-2xl border border-border/60 bg-card/70 shadow-sm">
         <div className="grid md:grid-cols-2">
           <ul className="space-y-4 p-5 sm:p-6">

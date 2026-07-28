@@ -37,10 +37,6 @@ export default function Stack() {
   return (
     <section className="mx-auto w-full max-w-5xl px-4 py-8 sm:px-5 sm:py-10 lg:px-7">
       <div className="overflow-hidden rounded-2xl border border-border/60 bg-card/70 shadow-sm">
-        <div className="border-b border-border/60 px-5 py-5 sm:px-7 sm:py-6">
-          <p className="font-mono text-sm text-muted-foreground">Tools I use</p>
-          <h2 className="mt-1 text-3xl font-semibold tracking-tight sm:text-4xl">Stack</h2>
-        </div>
 
         <div>
           {stackGroups.map((group, index) => (
