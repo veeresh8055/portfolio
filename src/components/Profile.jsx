@@ -53,7 +53,7 @@ export default function Profile() {
               <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/0 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             </div>
             <ElectricBorder
-              color="#7df9ff"
+              color="#fcba03"
               speed={1}
               chaos={0.12}
               borderRadius={9999}
