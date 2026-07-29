@@ -1,20 +1,79 @@
 import { Badge } from "@/components/ui/badge"
+import { BsOpenai } from "react-icons/bs"
+import { PanelsTopLeft, Terminal } from "lucide-react"
+import { DiPhotoshop } from "react-icons/di"
+import {
+  SiClaude,
+  SiCursor,
+  SiDocker,
+  SiFigma,
+  SiFramer,
+  SiGit,
+  SiGithub,
+  SiGooglegemini,
+  SiGreensock,
+  SiJavascript,
+  SiMongodb,
+  SiMysql,
+  SiNextdotjs,
+  SiNodedotjs,
+  SiOpenjdk,
+  SiPostgresql,
+  SiPosthog,
+  SiRadixui,
+  SiReact,
+  SiRedis,
+  SiShadcnui,
+  SiTailwindcss,
+  SiTypescript,
+  SiVercel,
+} from "react-icons/si"
+
+const toolIcons = {
+  TypeScript: SiTypescript,
+  JavaScript: SiJavascript,
+  Java: SiOpenjdk,
+  React: SiReact,
+  "Next.js": SiNextdotjs,
+  "Tailwind CSS": SiTailwindcss,
+  "shadcn/ui": SiShadcnui,
+  "Radix UI": SiRadixui,
+  Motion: SiFramer,
+  GSAP: SiGreensock,
+  "Node.js": SiNodedotjs,
+  PostgreSQL: SiPostgresql,
+  MongoDB: SiMongodb,
+  Redis: SiRedis,
+  MySQL: SiMysql,
+  Cursor: SiCursor,
+  Claude: SiClaude,
+  Gemini: SiGooglegemini,
+  ChatGPT: BsOpenai,
+  Git: SiGit,
+  GitHub: SiGithub,
+  Docker: SiDocker,
+  Vercel: SiVercel,
+  OpenPanel: PanelsTopLeft,
+  PostHog: SiPosthog,
+  Figma: SiFigma,
+  Photoshop: DiPhotoshop,
+}
 
 const stackGroups = [
   {
     name: "Language",
     icon: "code",
-    tools: ["TypeScript", "JavaScript", "Python"],
+    tools: ["TypeScript", "JavaScript", "Java"],
   },
   {
     name: "Frontend",
     icon: "web",
-    tools: ["React", "Next.js", "Tailwind CSS", "shadcn/ui", "Radix UI", "Motion", "TanStack"],
+    tools: ["React", "Next.js", "Tailwind CSS", "shadcn/ui", "Radix UI", "Motion", "GSAP"],
   },
   {
     name: "Backend & Database",
     icon: "storage",
-    tools: ["Node.js", "PostgreSQL", "MongoDB", "Redis"],
+    tools: ["Node.js", "PostgreSQL", "MongoDB", "Redis" , "MySQL"] ,
   },
   {
     name: "Workflow & AI",
@@ -29,7 +88,7 @@ const stackGroups = [
   {
     name: "Design",
     icon: "palette",
-    tools: ["Figma", "Paper", "Photoshop"],
+    tools: ["Figma", "Photoshop" ],
   },
 ]
 
@@ -52,17 +111,19 @@ export default function Stack() {
               </div>
 
               <div className="flex flex-wrap content-center gap-2 px-5 py-5 sm:px-7">
-                {group.tools.map((tool) => (
-                  <Badge
-                    key={tool}
-                    variant="outline"
-                    className="h-8 gap-1.5 rounded-full px-3 font-mono text-sm font-medium transition-colors hover:border-foreground/30 hover:bg-muted">
-                    <span className="material-symbols-rounded text-[16px] leading-none text-muted-foreground" aria-hidden="true">
-                      terminal
-                    </span>
-                    {tool}
-                  </Badge>
-                ))}
+                {group.tools.map((tool) => {
+                  const SkillIcon = toolIcons[tool] ?? Terminal
+
+                  return (
+                    <Badge
+                      key={tool}
+                      variant="outline"
+                      className="h-8 gap-1.5 rounded-full px-3 font-mono text-sm font-medium transition-colors hover:border-foreground/30 hover:bg-muted">
+                      <SkillIcon className="size-4 shrink-0 text-muted-foreground" aria-hidden="true" />
+                      {tool}
+                    </Badge>
+                  )
+                })}
               </div>
             </div>
           ))}

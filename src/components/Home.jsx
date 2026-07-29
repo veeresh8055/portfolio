@@ -1,4 +1,5 @@
 import About from "./About";
+import AboutMe from "./AboutMe";
 import Contact from "./Contact";
 import GitHubContributionGraph from "./GitHubContributionGraph";
 import Profile from "./Profile";
@@ -40,6 +41,7 @@ export default function Home() {
         <SectionSeparator label="About" />
         <SectionSeparator dashed />
       </div>
+      <AboutMe />
       <About />
       <div className="mx-auto w-full max-w-full space-y-4 px-4 sm:px-5 lg:px-7">
         <SectionSeparator dashed />
@@ -73,7 +75,7 @@ export default function Home() {
         <AnimatedText05 text=" © 2026 , Built with React, Tailwind CSS, and ❤️ by Veeresh." />
       </div>
 
-      <section className="  p-4 w-full h-full  overflow-visible">
+      <section className="h-full w-full overflow-hidden p-4">
         <TextPressure
           text="veeresh"
           flex

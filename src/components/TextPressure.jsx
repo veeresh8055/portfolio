@@ -50,6 +50,8 @@ const TextPressure = ({
 
   const mouseRef = useRef({ x: 0, y: 0 });
   const cursorRef = useRef({ x: 0, y: 0 });
+  const isPointerOverRef = useRef(false);
+  const isVisibleRef = useRef(false);
 
   const [fontSize, setFontSize] = useState(minFontSize);
   const [scaleY, setScaleY] = useState(1);
@@ -58,19 +60,6 @@ const TextPressure = ({
   const chars = text.split('');
 
   useEffect(() => {
-    const handleMouseMove = e => {
-      cursorRef.current.x = e.clientX;
-      cursorRef.current.y = e.clientY;
-    };
-    const handleTouchMove = e => {
-      const t = e.touches[0];
-      cursorRef.current.x = t.clientX;
-      cursorRef.current.y = t.clientY;
-    };
-
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('touchmove', handleTouchMove, { passive: true });
-
     if (containerRef.current) {
       const { left, top, width, height } = containerRef.current.getBoundingClientRect();
       mouseRef.current.x = left + width / 2;
@@ -78,12 +67,47 @@ const TextPressure = ({
       cursorRef.current.x = mouseRef.current.x;
       cursorRef.current.y = mouseRef.current.y;
     }
-
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('touchmove', handleTouchMove);
-    };
   }, []);
+
+  const resetPressure = useCallback(() => {
+    if (!isPointerOverRef.current) return;
+    isPointerOverRef.current = false;
+    spansRef.current.forEach(span => {
+      if (!span) return;
+      span.style.fontVariationSettings = "'wght' 400, 'wdth' 100, 'ital' 0";
+      if (alpha) span.style.opacity = '1';
+    });
+  }, [alpha]);
+
+  const updatePointer = useCallback(event => {
+    // The effect begins in the lower half of the screen once this footer is
+    // visible, giving it a larger, deliberate interaction area.
+    if (!isVisibleRef.current || event.clientY < window.innerHeight / 100) {
+      resetPressure();
+      return;
+    }
+
+    isPointerOverRef.current = true;
+    cursorRef.current.x = event.clientX;
+    cursorRef.current.y = event.clientY;
+  }, [resetPressure]);
+
+  useEffect(() => {
+    const visibilityObserver = new IntersectionObserver(([entry]) => {
+      isVisibleRef.current = entry.isIntersecting;
+      if (!entry.isIntersecting) resetPressure();
+    }, { threshold: 0.1 });
+
+    if (containerRef.current) visibilityObserver.observe(containerRef.current);
+
+    window.addEventListener('pointermove', updatePointer, { passive: true });
+    window.addEventListener('scroll', resetPressure, { passive: true });
+    return () => {
+      visibilityObserver.disconnect();
+      window.removeEventListener('pointermove', updatePointer);
+      window.removeEventListener('scroll', resetPressure);
+    };
+  }, [resetPressure, updatePointer]);
 
   const setSize = useCallback(() => {
     if (!containerRef.current || !titleRef.current) return;
@@ -115,12 +139,24 @@ const TextPressure = ({
     const debouncedSetSize = debounce(setSize, 100);
     debouncedSetSize();
     window.addEventListener('resize', debouncedSetSize);
-    return () => window.removeEventListener('resize', debouncedSetSize);
+
+    const resizeObserver = new ResizeObserver(debouncedSetSize);
+    if (containerRef.current) resizeObserver.observe(containerRef.current);
+
+    return () => {
+      window.removeEventListener('resize', debouncedSetSize);
+      resizeObserver.disconnect();
+    };
   }, [setSize]);
 
   useEffect(() => {
     let rafId;
     const animate = () => {
+      if (!isPointerOverRef.current) {
+        rafId = requestAnimationFrame(animate);
+        return;
+      }
+
       mouseRef.current.x += (cursorRef.current.x - mouseRef.current.x) / 15;
       mouseRef.current.y += (cursorRef.current.y - mouseRef.current.y) / 15;
 
@@ -187,7 +223,7 @@ const TextPressure = ({
   return (
     <div
       ref={containerRef}
-      className="relative w-full h-full overflow-hidden bg-transparent">
+      className="relative h-full w-full overflow-hidden bg-transparent">
       {styleElement}
       <h1
         ref={titleRef}
@@ -202,7 +238,8 @@ const TextPressure = ({
           transformOrigin: 'center top',
           margin: 0,
           fontWeight: 100,
-          color: stroke ? undefined : textColor
+          color: stroke ? undefined : textColor,
+          transition: 'font-variation-settings 120ms ease-out, opacity 120ms ease-out'
         }}>
         {chars.map((char, i) => (
           <span

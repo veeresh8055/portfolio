@@ -46,7 +46,7 @@ export default function Profile() {
           <div className="group relative aspect-square w-[clamp(6.75rem,16vw,9rem)] sm:w-[clamp(7.5rem,15vw,10rem)] md:w-[clamp(8rem,14vw,11rem)]">
             <div className="relative h-full w-full overflow-hidden rounded-full bg-card shadow-[0_24px_80px_rgba(15,23,42,0.12)]">
               <img
-                src="/src/assets/hero.png"
+                src="/src/assets/hero.jpg"
                 alt="Veeresh B C"
                 className="h-full w-full rounded-full object-cover transition-transform duration-500 group-hover:scale-105"
               />

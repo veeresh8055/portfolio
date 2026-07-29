@@ -9,7 +9,7 @@ const timeFormatter = new Intl.DateTimeFormat("en-IN", {
 })
 
 const aboutItems = [
-  { icon: "code", text: "Frontend Developer & Designer" },
+  { icon: "code", text: "Full Stck  Developer & Designer" },
   { icon: "lightbulb", text: "Open-source contributor" },
   { icon: "location_on", text: " India" },
 ]
@@ -19,37 +19,53 @@ const WEBSITE_URL = "https://veeresh.developer"
 
 function AboutItem({ icon, text, href, onCopy, copied }) {
   return (
-    <li
-      className={`group grid min-h-8 items-center gap-3 text-sm text-foreground sm:text-base ${
-        onCopy ? "grid-cols-[2rem_minmax(0,1fr)_2rem]" : "grid-cols-[2rem_minmax(0,1fr)]"
-      }`}>
-      <span
-        className="material-symbols-rounded inline-flex size-8 items-center justify-center rounded-lg border border-border/70 bg-background/80 text-[18px] leading-none text-muted-foreground shadow-sm"
-        aria-hidden="true">
-        {icon}
-      </span>
-      {href ? (
-        <a
-          href={href}
-          target="_blank"
-          rel="noreferrer"
-          className="w-fit font-mono tracking-tight underline decoration-transparent underline-offset-4 transition-colors hover:cursor-pointer hover:decoration-current focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4">
-          {text}
-        </a>
-      ) : (
-        <span className="font-mono tracking-tight">{text}</span>
-      )}
-      {onCopy && (
-        <button
-          type="button"
-          onClick={onCopy}
-          className="material-symbols-rounded inline-flex size-8 items-center justify-center rounded-lg border border-border/70 bg-background/80 text-[17px] text-muted-foreground opacity-0 transition-all hover:border-foreground/30 hover:text-foreground focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 group-hover:opacity-100"
-          aria-label={copied ? "Email copied" : "Copy email"}
-          title={copied ? "Copied" : "Copy email"}>
-          {copied ? "check" : "content_copy"}
-        </button>
-      )}
-    </li>
+     <li
+  className={`group grid min-h-8 items-center gap-3 text-sm text-foreground sm:text-base ${
+    onCopy
+      ? "grid-cols-[2rem_minmax(0,1fr)_2rem]"
+      : "grid-cols-[2rem_minmax(0,1fr)]"
+  }`}
+>
+  <span
+    aria-hidden="true"
+    className="material-symbols-rounded inline-flex h-fit w-fit p-1 items-center justify-center rounded-lg border border-border/70 bg-background/80 text-[20px] text-muted-foreground shadow-sm"
+    style={{
+      lineHeight: 1,
+      fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24",
+    }}
+  >
+    {icon}
+  </span>
+
+  {href ? (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      className="w-fit font-mono tracking-tight underline decoration-transparent underline-offset-4 transition-colors hover:cursor-pointer hover:decoration-current focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-4"
+    >
+      {text}
+    </a>
+  ) : (
+    <span className="font-mono tracking-tight">{text}</span>
+  )}
+
+  {onCopy && (
+    <button
+      type="button"
+      onClick={onCopy}
+      className="material-symbols-rounded inline-flex h-8 w-8 items-center justify-center rounded-lg border border-border/70 bg-background/80 text-[20px] text-muted-foreground opacity-0 transition-all hover:border-foreground/30 hover:text-foreground focus-visible:opacity-100 focus-visible:outline-2 focus-visible:outline-offset-2 group-hover:opacity-100"
+      style={{
+        lineHeight: 1,
+        fontVariationSettings: "'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24",
+      }}
+      aria-label={copied ? "Email copied" : "Copy email"}
+      title={copied ? "Copied" : "Copy email"}
+    >
+      {copied ? "check" : "content_copy"}
+    </button>
+  )}
+</li>
   )
 }
 
