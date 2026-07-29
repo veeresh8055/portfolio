@@ -1,16 +1,151 @@
-# React + Vite
+# 🚀 My Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive developer portfolio built to showcase my projects, skills, and journey as a software developer.
 
-Currently, two official plugins are available:
+🌐 **Live Demo:** https://your-portfolio-link.com
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 👋 About
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+I'm a **MERN Stack Developer** passionate about building modern, scalable, and user-centric web applications. I enjoy creating clean, responsive interfaces and writing maintainable code with a strong focus on performance and user experience.
 
-## Expanding the ESLint configuration
+Alongside full-stack development, I continuously strengthen my problem-solving skills through **Data Structures & Algorithms** using **Java** and **JavaScript**, while exploring **Design Engineering** to bridge the gap between design and development.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## ✨ Features
+
+* Responsive design for all devices
+* Modern and minimal UI
+* Smooth animations and interactions
+* Dark mode support
+* Projects showcase
+* Skills & technology stack
+* About section
+* Contact section
+* Optimized performance
+* SEO-friendly structure
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* React
+* Next.js
+* TypeScript
+* Tailwind CSS
+* Framer Motion
+* shadcn/ui
+
+### Backend
+
+* Node.js
+* Express.js
+* MongoDB
+
+### Programming Languages
+
+* JavaScript
+* TypeScript
+* Java
+
+### Tools
+
+* Git
+* GitHub
+* VS Code
+* Postman
+* Figma
+
+---
+
+## 📂 Project Structure
+
+```text
+.
+├── app/
+├── components/
+├── lib/
+├── public/
+├── styles/
+├── hooks/
+├── data/
+└── README.md
+```
+
+---
+
+## 🚀 Getting Started
+
+Clone the repository:
+
+```bash
+git clone https://github.com/your-username/portfolio.git
+```
+
+Navigate to the project:
+
+```bash
+cd portfolio
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Run the development server:
+
+```bash
+npm run dev
+```
+
+Open:
+
+```text
+http://localhost:3000
+```
+
+---
+
+## 📸 Preview
+
+Add screenshots or a GIF of your portfolio here.
+
+```text
+public/preview.png
+```
+
+---
+
+## 📈 Future Improvements
+
+* Blog integration
+* Project filtering
+* CMS support
+* Multi-language support
+* Analytics dashboard
+* Interactive project demos
+
+---
+
+## 🤝 Connect With Me
+
+* Portfolio: https://your-portfolio-link.com
+* GitHub: https://github.com/your-username
+* LinkedIn: https://linkedin.com/in/your-username
+* Email: [your.email@example.com](mailto:your.email@example.com)
+
+---
+
+## ⭐ Support
+
+If you like this project, consider giving it a ⭐ on GitHub. It helps others discover my work and motivates me to keep building.
+
+---
+
+Made with ❤️ using React, Next.js, Tailwind CSS, and lots of coffee.
