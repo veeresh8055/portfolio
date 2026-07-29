@@ -7,6 +7,7 @@ import {
 
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
+import portfolioLogo from "@/assets/portfoiliologo.png"
 
 const RESUME_URL =
   "https://drive.google.com/drive/folders/REPLACE_WITH_YOUR_SHARED_RESUME_LINK"
@@ -43,13 +44,13 @@ export default function Navbar() {
       <div className="mx-auto flex h-20 w-full max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
         <Link
           to="/"
-          className="group inline-flex items-center gap-3 rounded-full border border-border/60 bg-card/70 px-4 py-2 shadow-sm transition-all duration-500 hover:-translate-y-0.5 hover:border-transparent hover:bg-[radial-gradient(ellipse_85%_65%_at_8%_8%,rgba(175,109,255,0.42),transparent_60%),radial-gradient(ellipse_75%_60%_at_75%_35%,rgba(255,235,170,0.55),transparent_62%),radial-gradient(ellipse_70%_60%_at_15%_80%,rgba(255,100,180,0.40),transparent_62%),radial-gradient(ellipse_70%_60%_at_92%_92%,rgba(120,190,255,0.45),transparent_62%),linear-gradient(180deg,#f7eaff_0%,#fde2ea_100%)]">
-             VBC
-          <span className="hidden flex-col leading-tight sm:flex">
-            <span className="font-mono text-[11px] text-muted-foreground transition-colors duration-500 group-hover:text-foreground/80">
-              design-driven portfolio
-            </span>
-          </span>
+          aria-label="Veeresh's portfolio home"
+          className="group inline-flex size-15 items-center justify-center overflow-visible">
+          <img
+            src={portfolioLogo}
+            alt="Veeresh portfolio logo"
+            className="h-full w-full scale-125 object-contain transition-transform duration-500 group-hover:scale-[1.38]"
+          />
         </Link>
 
         <nav className="flex items-center gap-2 sm:gap-3">
