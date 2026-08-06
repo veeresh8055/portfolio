@@ -11,7 +11,7 @@ import portfolioLogo from "@/assets/portfoiliologo.png"
 
 const RESUME_URL =
   "https://drive.google.com/drive/folders/REPLACE_WITH_YOUR_SHARED_RESUME_LINK"
-const GITHUB_URL = "https://github.com/REPLACE_WITH_YOUR_GITHUB"
+const GITHUB_URL = "https://github.com/veeresh8055"
 const LINKEDIN_URL = "https://www.linkedin.com/in/REPLACE_WITH_YOUR_LINKEDIN"
 
 const navItems = [
