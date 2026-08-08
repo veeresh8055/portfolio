@@ -6,8 +6,8 @@ import profileImage from "../assets/hero.png"
 
 const taglines = [
   "Open source contributor.",
-  "I own a vintage iPhone.",
-  "Creating with code. Small details matter.",
+  "Full-stack web developer.",
+  "CleanUI/UX enthusiast.",
 ]
 
 const spokenName = "Veeresh B C"
