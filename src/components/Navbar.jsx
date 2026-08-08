@@ -10,9 +10,9 @@ import { cn } from "@/lib/utils"
 import portfolioLogo from "@/assets/portfoiliologo.png"
 
 const RESUME_URL =
-  "https://drive.google.com/drive/folders/REPLACE_WITH_YOUR_SHARED_RESUME_LINK"
+  "https://drive.google.com/file/d/1jwBWewT2X65aaWUwTuqsauLU1oILFTM9/view?usp=sharing"
 const GITHUB_URL = "https://github.com/veeresh8055"
-const LINKEDIN_URL = "https://www.linkedin.com/in/REPLACE_WITH_YOUR_LINKEDIN"
+const LINKEDIN_URL = "https://www.linkedin.com/in/veeresh-chared/"
 
 const navItems = [
   {
