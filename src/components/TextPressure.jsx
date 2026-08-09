@@ -42,7 +42,8 @@ const TextPressure = ({
   strokeWidth = 2,
   className = '',
 
-  minFontSize = 24
+  minFontSize = 24,
+  interactionDelay = 2000
 }) => {
   const containerRef = useRef(null);
   const titleRef = useRef(null);
@@ -52,6 +53,7 @@ const TextPressure = ({
   const cursorRef = useRef({ x: 0, y: 0 });
   const isPointerOverRef = useRef(false);
   const isVisibleRef = useRef(false);
+  const isInteractionEnabledRef = useRef(false);
 
   const [fontSize, setFontSize] = useState(minFontSize);
   const [scaleY, setScaleY] = useState(1);
@@ -80,6 +82,11 @@ const TextPressure = ({
   }, [alpha]);
 
   const updatePointer = useCallback(event => {
+    // Do not use a pointer position captured while the page is still loading
+    // or being scrolled into place. This prevents the footer text from jumping
+    // to an off-screen/stale cursor position.
+    if (!isInteractionEnabledRef.current) return;
+
     // The effect begins in the lower half of the screen once this footer is
     // visible, giving it a larger, deliberate interaction area.
     if (!isVisibleRef.current || event.clientY < window.innerHeight / 100) {
@@ -100,14 +107,19 @@ const TextPressure = ({
 
     if (containerRef.current) visibilityObserver.observe(containerRef.current);
 
+    const interactionTimer = window.setTimeout(() => {
+      isInteractionEnabledRef.current = true;
+    }, interactionDelay);
+
     window.addEventListener('pointermove', updatePointer, { passive: true });
     window.addEventListener('scroll', resetPressure, { passive: true });
     return () => {
       visibilityObserver.disconnect();
+      window.clearTimeout(interactionTimer);
       window.removeEventListener('pointermove', updatePointer);
       window.removeEventListener('scroll', resetPressure);
     };
-  }, [resetPressure, updatePointer]);
+  }, [interactionDelay, resetPressure, updatePointer]);
 
   const setSize = useCallback(() => {
     if (!containerRef.current || !titleRef.current) return;
