@@ -2,7 +2,7 @@
 
 A modern, responsive developer portfolio built to showcase my projects, skills, and journey as a software developer.
 
-🌐 **Live Demo:** https://your-portfolio-link.com
+🌐 **Live Demo:** https://portfolio-alpha-lac-yfki6coqe2.vercel.app/
 
 ---
 
@@ -135,10 +135,10 @@ public/preview.png
 
 ## 🤝 Connect With Me
 
-* Portfolio: https://your-portfolio-link.com
-* GitHub: https://github.com/your-username
-* LinkedIn: https://linkedin.com/in/your-username
-* Email: [your.email@example.com](mailto:your.email@example.com)
+* Portfolio: https://portfolio-alpha-lac-yfki6coqe2.vercel.app/
+* GitHub: https://github.com/veeresh8055
+* LinkedIn: https://linkedin.com/in/veeresh-chared
+* Email: [veereshbchared@gmail.com](mailto:your.email@example.com)
 
 ---
 
