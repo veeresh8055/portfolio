@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
 import portfolioLogo from "@/assets/portfoiliologo.png"
 
-const RESUME_URL = "https://drive.google.com/file/d/1R_c8snmijrRjPaZaWWvpwVH2sVH3DP-8/view"
+const RESUME_URL = "https://drive.google.com/file/d/1EewKTBMTn4-iAgzBzAF5QmTmjo7pDwBI/view?usp=drive_link"
 const GITHUB_URL = "https://github.com/veeresh8055"
 const LINKEDIN_URL = "https://www.linkedin.com/in/veeresh-chared/"
 
